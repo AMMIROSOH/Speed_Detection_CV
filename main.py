@@ -10,6 +10,17 @@ ax2=230
 bx1=15
 by=125
 bx2=225
+
+def Speed_Cal(time):
+    #Here i converted m to Km and second to hour then divison to reach Speed in this form (KM/H) 
+    #the 9.144 is distance of free space between two lines # found in https://news.osu.edu/slow-down----those-lines-on-the-road-are-longer-than-you-think/
+    #i know that the 9.144 is an standard and my video may not be that but its like guess and its need Field research
+    try:
+        Speed = (9.144*3600)/(time*1000)
+        return Speed
+    except ZeroDivisionError:
+        print (5)
+        
 #car num
 i = 1
 start_time = time.time()
@@ -57,17 +68,5 @@ while True:
     
     if cv2.waitKey(33) == 27:
         break
-
+cap.release()
 cv2.destroyAllWindows()
-
-
-
-def Speed_Cal(time):
-    #Here i converted m to Km and second to hour then divison to reach Speed in this form (KM/H) 
-    #the 9.144 is distance of free space between two lines # found in https://news.osu.edu/slow-down----those-lines-on-the-road-are-longer-than-you-think/
-    #i know that the 9.144 is an standard and my video may not be that but its like guess and its need Field research
-    try:
-        Speed = (9.144*3600)/(time*1000)
-        return Speed
-    except ZeroDivisionError:
-        print (5)
